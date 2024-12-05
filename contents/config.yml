@@ -1,0 +1,13 @@
+# General settings or global content
+site_title: "My Awesome Web Page"
+site_description: "An example site using dynamic content loading."
+
+# Section-specific content
+Character-subtitle: "About the Character"
+heroVSvillain-subtitle: "Hero vs Villain"
+succesMovie-subtitle: "The Success of the Movie"
+
+# Additional details for sections
+heroVSvillain-intro: |
+  A tale as old as time! Heroes and villains clash in an epic battle
+  of good versus evil, courage versus cunning.

@@ -1,9 +1,0 @@
-theme: jekyll-theme-minimal
-title: Data Brigada
-description: CMU ADA Project
-show_downloads: True
-navigation:
-  - title: Home
-    url: /
-  - title: Example
-    url: example
