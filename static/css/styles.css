@@ -394,6 +394,50 @@ button:not(:disabled),
   cursor: pointer;
 }
 
+/* Custom Button Styles */
+/* Custom Button Styles */
+.btn-custom {
+  padding: 0.75rem 1.5rem !important;
+  font-size: 1.2rem !important;
+  font-weight: bold !important;
+  color: #ffffff !important; /* Text color */
+  background-color: #9c1313 !important; /* Button background color */
+  border: 2px solid #c51111 !important; /* Border color */
+  border-radius: 0.5rem !important;
+  position: absolute !important; /* Position the button within the section */
+  bottom: -550px !important; /* Distance from the bottom of the section */
+  left: 50% !important; /* Center horizontally */
+  transform: translateX(-50%) !important; /* Adjust centering */
+  z-index: 5000 !important; /* Ensure the button stays on top */
+  transition: background-color 0.3s ease, transform 0.3s ease !important;
+}
+
+
+/* Button Hover Effect */
+.btn-custom:hover {
+  background-color: #b81717 !important; /* Slightly darker red */
+  color: #ffffff !important; /* Text color remains white */
+  transform: translate(-50%, -3px) !important; /* Lift effect */
+}
+
+/* Button Focus Effect */
+.btn-custom:focus {
+  outline: none !important;
+  box-shadow: 0 0 10px rgba(156, 19, 19, 0.5) !important; /* Subtle glow on focus */
+}
+
+/* Button Active Effect */
+.btn-custom:active {
+  background-color: #7a0e0e !important; /* Even darker red */
+  transform: translate(-50%, 1px) !important; /* Depressed effect */
+}
+
+
+
+
+
+
+
 ::-moz-focus-inner {
   padding: 0;
   border-style: none;
