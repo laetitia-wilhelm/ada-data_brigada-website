@@ -1,13 +1,12 @@
 # General settings or global content
-site_title: "My Awesome Web Page"
-site_description: "An example site using dynamic content loading."
+site_title: "How can our favorite characters drive a movie’s success over the years ?"
+site_description: "Discover the different character tropes in movies across the decades and how they contribute to the success of a movie."
 
 # Section-specific content
-Character-subtitle: "About the Character"
-heroVSvillain-subtitle: "Hero vs Villain"
+Character-subtitle: "The Different Character Tropes"
 succesMovie-subtitle: "The Success of the Movie"
 
 # Additional details for sections
-heroVSvillain-intro: |
-  A tale as old as time! Heroes and villains clash in an epic battle
-  of good versus evil, courage versus cunning.
+#heroVSvillain-intro: |
+  #A tale as old as time! Heroes and villains clash in an epic battle
+  #of good versus evil, courage versus cunning.

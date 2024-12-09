@@ -10952,3 +10952,28 @@ footer a:hover, footer a:active, footer a:focus {
   color: rgba(255, 255, 255, 0.75);
   text-decoration: underline;
 }
+
+.top-section-content {
+  position: relative;
+  text-align: center;
+  color: white; /* Text color */
+}
+
+.container-px-5-text-center {
+  position: absolute;
+  top: 70%; /* Adjust position vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Center text */
+  background-color: rgba(180, 0, 0, 0.8); /* Red with 50% transparency */
+  padding: 20px; /* Optional: Add some padding */
+  border-radius: 10px; /* Optional: Round the corners */
+}
+
+.container-px-5-text-center h1 {
+  font-size: 3rem; /* Adjust text size */
+  margin: 0; /* Remove default margin */
+}
+
+.container-px-5-text-center p {
+  font-size: 1.5rem;
+}
