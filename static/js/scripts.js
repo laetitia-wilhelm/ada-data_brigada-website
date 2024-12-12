@@ -1,9 +1,6 @@
-
-
-const content_dir = 'contents/'
-const config_file = 'config.yml'
-const section_names = ['home', 'character', 'heroVSvillain', 'successMovie']
-
+const content_dir = 'contents/';
+const config_file = 'config.yml';
+const section_names = ['home', 'character', 'heroVSvillain', 'successMovie'];
 
 window.addEventListener('DOMContentLoaded', event => {
 
@@ -29,8 +26,7 @@ window.addEventListener('DOMContentLoaded', event => {
         });
     });
 
-
-    // Yaml
+    // Yaml Configuration File
     fetch(content_dir + config_file)
         .then(response => response.text())
         .then(text => {
@@ -39,27 +35,52 @@ window.addEventListener('DOMContentLoaded', event => {
                 try {
                     document.getElementById(key).innerHTML = yml[key];
                 } catch {
-                    console.log("Unknown id and value: " + key + "," + yml[key].toString())
+                    console.log("Unknown id and value: " + key + "," + yml[key].toString());
                 }
-
-            })
+            });
         })
         .catch(error => console.log(error));
 
-
-    // Marked
-    marked.use({ mangle: false, headerIds: false })
+    // Fetch .md or .html files and inject them into the page
     section_names.forEach((name, idx) => {
-        fetch(content_dir + name + '.md')
-            .then(response => response.text())
-            .then(markdown => {
-                const html = marked.parse(markdown);
-                document.getElementById(name + '-md').innerHTML = html;
-            }).then(() => {
-                // MathJax
-                MathJax.typeset();
+        let filePath = content_dir + name;
+        
+        // Check if the content is a Markdown file or an HTML file
+        fetch(filePath + '.md')  // Try to fetch Markdown file
+            .then(response => {
+                if (response.ok) {
+                    // If .md file exists, convert it using 'marked' and insert HTML
+                    return response.text().then(markdown => {
+                        const html = marked.parse(markdown);
+                        document.getElementById(name + '-md').innerHTML = html;
+                    });
+                } else {
+                    // If .md file doesn't exist, try HTML file
+                    return fetch(filePath + '.html').then(htmlResponse => {
+                        if (htmlResponse.ok) {
+                            // Directly inject HTML content
+                            return htmlResponse.text().then(html => {
+                                document.getElementById(name + '-md').innerHTML = html;
+                            });
+                        } else {
+                            console.log("Both .md and .html files are missing for section: " + name);
+                        }
+                    });
+                }
             })
             .catch(error => console.log(error));
-    })
+    });
 
-}); 
+    // Fetch and inject the character_adjectives.html content
+    const characterAdjectivesSection = document.getElementById('character-adjectives-container');
+    if (characterAdjectivesSection) {
+        fetch('contents/character_adjectives.html') // Path to the HTML file
+            .then(response => response.text())
+            .then(html => {
+                characterAdjectivesSection.innerHTML = html; // Inject the HTML content
+            })
+            .catch(error => console.log("Error loading character_adjectives.html: ", error));
+    }
+
+});
+
