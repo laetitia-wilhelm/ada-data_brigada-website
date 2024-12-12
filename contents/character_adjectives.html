@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Exploring Gender and Character Tropes in Film">
+    <meta name="author" content="Your Name">
+    <title>Exploring Gender and Character Tropes in Film</title>
+
+    <!-- External libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/marked@4.0.12/lib/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f4f4f4;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .interactive-table button {
+            margin-right: 10px;
+            margin-bottom: 20px;
+        }
+
+        .interactive-table div {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container px-5">
+        <header>
+            <h2 id="character-subtitle">
+                <i class="bi bi-person-fill"></i>&nbsp;Character
+            </h2>
+        </header>
+    </div>
+
+    <div class="container">
+        <section class="section">
+            <h1>🎥 Exploring Gender and Character Tropes in Film</h1>
+
+            <h3>🎯 Objective</h3>
+            <p> In film, we often believe that there is a strong gendered representation of characters, with distinct traits and roles assigned to men and women.
+            In this first part of our analysis, we will explore how characters are described across genders. Do the same words describe both men and women, or 
+            are the descriptions different? 
+            Are male and female characters portrayed with similar complexity? </p>
+
+
+            <h3>📊 Gender Representation in Film</h3>
+
+            <div style="display: flex; align-items: center; gap: 20px;">
+                <div style="flex: 1;">
+                    <p><strong>📊 Overall Representation</strong>: Women account for only <strong>30%</strong> of all characters in movies, a figure that has remained largely stagnant over decades.</p>
+                    <p><strong>🎭 Trope Representation</strong>: In the dataset of trope-rich roles, only <strong>14%</strong> of characters are female, compared to <strong>86%</strong> male.</p>
+                
+                
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Metric</th>
+                                <th>Male</th>
+                                <th>Female</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Overall Representation</td>
+                                <td>70%</td>
+                                <td>30%</td>
+                            </tr>
+                            <tr>
+                                <td>Trope Representation</td>
+                                <td>86%</td>
+                                <td>14%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div style="flex: 1;">
+                    <img src="../static/assets/character/gender_dist.png" alt="Gender Distribution" style="width: 100%; max-width: 600px; height: auto;" />
+                </div>
+            </div>
+
+
+
+
+
+            <div style="display: flex; justify-content: center; align-items: center; height: 70vh;">
+                <img src="../static/assets/character/DistributionOfMaleAndFemaleCharacterTrops.png" alt="Gender Distribution" style="max-width: 80%; height: auto;"/>
+              </div>
+              
+              
+              🟢 <strong>Observations</strong>
+              
+              
+              <p>There are 6 times more male occurence of these character tropes than female ones, which means that only 14% of the characters in this tropes dataset are women. 
+              This is half the count of women in films that we showed above which was already low. This shows that there are in addition to having a lot less female representation 
+              in movies, we also lack the data on which type of characters these actresses portray. The most common trope we see here for women are "dumb blonde" and "brainless beauty" 
+              which are very stereotypical tropes. However, it is important to note again that the dataset is not big enough and there is clearly not enough data for women archetypes.</p>
+              
+        </section>
+
+
+
+
+
+        <section class="section">
+            <h2>📝 Lexical Analysis: Descriptive Words</h2>
+
+            <p>Now that we have observed the differences in the distribution and types of character tropes between genders, we will take a closer
+                 look at the lexical choices used to describe them. In this second part of the gender analysis, we will examine the variety and complexity of verbs 
+                 and adjectives associated with male and female characters. How diverse is the language used for each gender? Are the descriptions nuanced or
+                  reductive? 
+                This will help us better understand how language contributes to the portrayal of gender in films.</p>
+
+            <h3><strong>Word Count Per Character</strong></h3>
+            <table border="1" cellpadding="10" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th><strong></strong></th>
+                        <th><strong>Male Characters</strong></th>
+                        <th><strong>Female Characters</strong></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Mean</strong></td>
+                        <td>2.34 words</td>
+                        <td>1.71 words</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Median</strong></td>
+                        <td>2 words</td>
+                        <td>2 words</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Maximum</strong></td>
+                        <td>5 words</td>
+                        <td>3 words</td>
+                    </tr>
+                </tbody>
+            </table>
+        
+            <p><strong>🔍 Observation</strong>: 
+                
+                <br> Male characters receive <strong>37% more descriptive words on average</strong> than female characters, reflecting deeper character development.</p>
+        
+            <h3>Adjective Usage by Gender</h3>
+
+
+
+
+
+
+            <div class="interactive-table">
+                <button id="maleButton" class="btn btn-primary">Show Male Characters</button>
+                <button id="femaleButton" class="btn btn-primary">Show Female Characters</button>
+
+                <div id="maleDiv" style="display: none;">
+                    <label for="maleAdjectiveSlider">Select number of male adjectives:</label>
+                    <input type="range" id="maleAdjectiveSlider" min="1" max="28" value="3">
+                    <span id="maleSliderValue">3</span>
+                    <table id="maleTable" border="1">
+                        <thead>
+                            <tr>
+                                <th>Adjective</th>
+                                <th>Frequency</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+
+                <div id="femaleDiv" style="display: none;">
+                    <label for="femaleAdjectiveSlider">Select number of female adjectives:</label>
+                    <input type="range" id="femaleAdjectiveSlider" min="1" max="4" value="3">
+                    <span id="femaleSliderValue">3</span>
+                    <table id="femaleTable" border="1">
+                        <thead>
+                            <tr>
+                                <th>Adjective</th>
+                                <th>Frequency</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+
+    <section class="section">
+        <h3>📝 Verb Usage</h3>
+    
+        <h4><span style="color: blue;">🔵 Male Characters</span></h4>
+        <p>Male characters are often described with verbs that emphasize <strong>action and role importance</strong>.</p>
+    
+        <table border="1" cellpadding="10" cellspacing="0">
+            <thead>
+                <tr>
+                    <th><strong>Verb</strong></th>
+                    <th><strong>Frequency</strong></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><em>Drill</em></td>
+                    <td>93</td>
+                </tr>
+                <tr>
+                    <td><em>Retired</em></td>
+                    <td>81</td>
+                </tr>
+                <tr>
+                    <td><em>Hardboiled</em></td>
+                    <td>87</td>
+                </tr>
+            </tbody>
+        </table>
+    
+        <h4><span style="color: orange;">🟠 Female Characters</span></h4>
+        <p>Female characters are rarely described with verbs, and when they are, the words tend to reflect <strong>passivity</strong> or <strong>simplicity</strong>.</p>
+    
+        <table border="1" cellpadding="10" cellspacing="0">
+            <thead>
+                <tr>
+                    <th><strong>Verb</strong></th>
+                    <th><strong>Frequency</strong></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><em>Klutz</em></td>
+                    <td>9</td>
+                </tr>
+                <tr>
+                    <td><em>Broken</em></td>
+                    <td>44</td>
+                </tr>
+            </tbody>
+        </table>
+    
+
+
+
+
+        <h3>📈 Sentiment Analysis of Descriptive Words</h3>
+    
+    <p>Just below, you can see a vizualisation of the most used word to describe female and male character.</p>
+
+        <div style="display: flex; justify-content: left; align-items: center; gap: 100px;">            <img src="../static/assets/character/face_women_full.png" alt="women_face style="width: 45%; height: auto;">
+            <img src="../static/assets/character/face_men_full.png" alt="men_face style="width: 45%; height: auto;">
+        </div>
+
+
+
+
+
+   
+        <p><strong>💡 Key Insight</strong>:</p>
+        <p><span style="color: orange;">🟠 Female Characters</span></p>
+        <ul>
+            <li>Fewer words are used to describe female characters</li>
+            <li>Predominantly negative words are used for female characters.</li>
+            <li>The most common description for female characters is "dumb blond," which is reductive</li>
+            <li>There are only two verbs used to describe female characters: "klutz", "broke"</li>
+        </ul>
+
+        <p><span style="color: blue;">🔵 Male Characters</span></p>
+
+            <ul>
+            <li>Male characters are described in more complex terms, reflecting more nuanced personalities</li>
+            <li>Their descriptions encompass a wider range of lexical fields, including romantic, egomaniacal, and cultured</li>
+            <li>More complex concept of romance are explored through the adjective "bromantic"</li>
+            <li>Uncommon words, like "Byronic," are used to describe male characters</li>
+            <li>"Byronic" refers to a moody rebel character, often with a dark secret, showcasing how even a single word can reveal a lot about a character.</li>
+        </ul>
+    </div>
+    </section>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            // Male and Female adjectives data
+            const maleAdjectives = [
+                { adjective: "None", frequency: "3189 (64.2%)" },
+                { adjective: "Crazy, jealous", frequency: "398 (8.0%)" },
+                { adjective: "Byronic", frequency: "290 (5.8%)" },
+                { adjective: "Corrupt", frequency: "247 (5.0%)" },
+                { adjective: "Dirty", frequency: "144 (2.9%)" },
+                { adjective: "Cultured", frequency: "104 (2.1%)" },
+                { adjective: "Fastest", frequency: "101 (2.0%)" },
+                { adjective: "Loveable", frequency: "96 (1.9%)" },
+                { adjective: "Sargeant", frequency: "93 (1.9%)" },
+                { adjective: "Egomaniac", frequency: "91 (1.8%)" },
+                { adjective: "Romantic", frequency: "72 (1.4%)" },
+                { adjective: "Professional", frequency: "66 (1.3%)" },
+                { adjective: "Young", frequency: "62 (1.2%)" },
+                { adjective: "Arrogant", frequency: "58 (1.2%)" },
+                { adjective: "Absent, minded", frequency: "56 (1.1%)" },
+                { adjective: "Playful", frequency: "56 (1.1%)" },
+                { adjective: "Evil", frequency: "53 (1.1%)" },
+                { adjective: "Crazy", frequency: "51 (1.0%)" },
+                { adjective: "Soft", frequency: "46 (0.9%)" },
+                { adjective: "Eccentric", frequency: "46 (0.9%)" },
+                { adjective: "Grumpy, old", frequency: "45 (0.9%)" },
+                { adjective: "Stupid", frequency: "43 (0.9%)" },
+                { adjective: "Big", frequency: "36 (0.7%)" },
+                { adjective: "Dumb", frequency: "34 (0.7%)" },
+                { adjective: "Bromantic", frequency: "29 (0.6%)" },
+                { adjective: "Bankrupt", frequency: "27 (0.5%)" },
+                { adjective: "Dumb, blonde", frequency: "1 (0.02%)" }
+            ];
+
+            const femaleAdjectives = [
+                { adjective: "Dumb blonde", frequency: "62 (12.7%)" },
+                { adjective: "Arrogant", frequency: "5 (1.0%)" },
+                { adjective: "Eccentric", frequency: "3 (0.6%)" },
+                { adjective: "None", frequency: "366 (75%)" }
+            ];
+
+            // Male and Female tables
+            const maleTableBody = document.getElementById("maleTable").querySelector("tbody");
+            const femaleTableBody = document.getElementById("femaleTable").querySelector("tbody");
+            const maleSlider = document.getElementById("maleAdjectiveSlider");
+            const femaleSlider = document.getElementById("femaleAdjectiveSlider");
+            const maleSliderValue = document.getElementById("maleSliderValue");
+            const femaleSliderValue = document.getElementById("femaleSliderValue");
+
+            function populateMaleTable(limit) {
+                maleTableBody.innerHTML = "";
+                maleAdjectives.slice(0, limit).forEach(({ adjective, frequency }) => {
+                    const row = `<tr><td>${adjective}</td><td>${frequency}</td></tr>`;
+                    maleTableBody.insertAdjacentHTML("beforeend", row);
+                });
+            }
+
+            function populateFemaleTable(limit) {
+                femaleTableBody.innerHTML = "";
+                femaleAdjectives.slice(0, limit).forEach(({ adjective, frequency }) => {
+                    const row = `<tr><td>${adjective}</td><td>${frequency}</td></tr>`;
+                    femaleTableBody.insertAdjacentHTML("beforeend", row);
+                });
+            }
+
+            // Initialize tables
+            populateMaleTable(parseInt(maleSlider.value, 10));
+            populateFemaleTable(parseInt(femaleSlider.value, 10));
+
+            maleSlider.addEventListener("input", () => {
+                const limit = parseInt(maleSlider.value, 10);
+                maleSliderValue.textContent = limit;
+                populateMaleTable(limit);
+            });
+
+            femaleSlider.addEventListener("input", () => {
+                const limit = parseInt(femaleSlider.value, 10);
+                femaleSliderValue.textContent = limit;
+                populateFemaleTable(limit);
+            });
+
+            function toggleGender(gender) {
+                if (gender === "male") {
+                    document.getElementById("maleDiv").style.display = "block";
+                    document.getElementById("femaleDiv").style.display = "none";
+                } else if (gender === "female") {
+                    document.getElementById("femaleDiv").style.display = "block";
+                    document.getElementById("maleDiv").style.display = "none";
+                }
+            }
+
+            document.getElementById("maleButton").addEventListener("click", () => toggleGender("male"));
+            document.getElementById("femaleButton").addEventListener("click", () => toggleGender("female"));
+        });
+    </script>
+
+</body>
+
+</html>
