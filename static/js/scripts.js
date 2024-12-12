@@ -81,6 +81,7 @@ window.addEventListener('DOMContentLoaded', event => {
             })
             .catch(error => console.log("Error loading character_adjectives.html: ", error));
     }
+    
 
 });
 

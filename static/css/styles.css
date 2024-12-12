@@ -1791,6 +1791,7 @@ progress {
     --bs-gutter-y: 3rem;
   }
 }
+
 .table {
   --bs-table-color: var(--bs-body-color);
   --bs-table-bg: transparent;
@@ -1802,7 +1803,7 @@ progress {
   --bs-table-active-bg: rgba(0, 0, 0, 0.1);
   --bs-table-hover-color: var(--bs-body-color);
   --bs-table-hover-bg: rgba(0, 0, 0, 0.075);
-  width: 100%;
+  width: 50%;
   margin-bottom: 1rem;
   color: var(--bs-table-color);
   vertical-align: top;
@@ -1868,18 +1869,30 @@ progress {
 }
 
 .table-primary {
-  --bs-table-color: #000;
-  --bs-table-bg: #d4d7fc;
-  --bs-table-border-color: #bfc2e3;
-  --bs-table-striped-bg: #c9ccef;
-  --bs-table-striped-color: #000;
-  --bs-table-active-bg: #bfc2e3;
-  --bs-table-active-color: #000;
-  --bs-table-hover-bg: #c4c7e9;
-  --bs-table-hover-color: #000;
-  color: var(--bs-table-color);
-  border-color: var(--bs-table-border-color);
+  --bs-table-color: #000; /* Black text for lighter rows */
+  --bs-table-bg: #fbecec; /* Soft pinkish red for background */
+  --bs-table-border-color: #e5a4a4; /* Muted border color for elegance */
+  --bs-table-striped-bg: #f4d4d4; /* Light rose for striped rows */
+  --bs-table-striped-color: #000; /* Black text on striped rows */
+  --bs-table-hover-bg: #f8b4b4; /* Slightly brighter pink for hover effect */
+  --bs-table-hover-color: #000; /* Black text on hover */
 }
+
+.table-primary thead th {
+  background-color: #8b0000; /* Deep red header background */
+  color: #ffffff; /* White text for contrast */
+  font-weight: bold; /* Highlight headers */
+}
+
+.table-primary tbody tr td {
+  background-color: var(--bs-table-bg); /* Light background for cells */
+  color: var(--bs-table-color); /* Text color */
+}
+
+.table-primary tbody tr:nth-of-type(odd) td {
+  background-color: var(--bs-table-striped-bg); /* Striped rows */
+}
+
 
 .table-secondary {
   --bs-table-color: #000;
@@ -1907,6 +1920,13 @@ progress {
   --bs-table-hover-color: #000;
   color: var(--bs-table-color);
   border-color: var(--bs-table-border-color);
+}
+
+
+.table-wrapper {
+  width: 70%; /* Adjust the percentage as needed for your design */
+  margin: 0 auto; /* Center the table */
+  border: none; /* Optional: remove extra borders around the wrapper */
 }
 
 .table-info {
@@ -2221,6 +2241,67 @@ textarea.form-control-lg {
     transition: none;
   }
 }
+
+
+/* Male Table - Blue Theme */
+.table-male {
+  --bs-table-color: #000; /* Black text for lighter rows */
+  --bs-table-bg: #cce5ff; /* Soft blue background */
+  --bs-table-border-color: #b8daff; /* Light blue border color */
+  --bs-table-striped-bg: #b3d7ff; /* Light blue for striped rows */
+  --bs-table-striped-color: #000; /* Black text on striped rows */
+  --bs-table-hover-bg: #99c2ff; /* Brighter blue on hover */
+  --bs-table-hover-color: #000; /* Black text on hover */
+}
+
+.table-male thead th {
+  background-color: #0056b3; /* Deep blue header background */
+  color: #ffffff; /* White text for contrast */
+  font-weight: bold; /* Highlight headers */
+}
+
+/* Female Table - Purple Theme */
+.table-female {
+  --bs-table-color: #000; /* Black text for lighter rows */
+  --bs-table-bg: #f3e6f5; /* Soft purple background */
+  --bs-table-border-color: #e2d3e9; /* Light purple border color */
+  --bs-table-striped-bg: #e6d1f2; /* Light purple for striped rows */
+  --bs-table-striped-color: #000; /* Black text on striped rows */
+  --bs-table-hover-bg: #d1a7f3; /* Brighter purple on hover */
+  --bs-table-hover-color: #000; /* Black text on hover */
+}
+
+.table-female thead th {
+  background-color: #6f42c1; /* Deep purple header background */
+  color: #ffffff; /* White text for contrast */
+  font-weight: bold; /* Highlight headers */
+}
+
+/* Male Button - Blue Theme */
+.btn-male {
+  background-color: #0056b3; /* Deep blue background */
+  border-color: #004085; /* Dark blue border */
+  color: #fff; /* White text */
+}
+
+.btn-male:hover {
+  background-color: #004085; /* Darker blue on hover */
+  border-color: #003366; /* Even darker blue border */
+}
+
+/* Female Button - Purple Theme */
+.btn-female {
+  background-color: #6f42c1; /* Deep purple background */
+  border-color: #5a2d97; /* Dark purple border */
+  color: #fff; /* White text */
+}
+
+.btn-female:hover {
+  background-color: #5a2d97; /* Darker purple on hover */
+  border-color: #4a1f7c; /* Even darker purple border */
+}
+
+
 .form-select:focus {
   border-color: #949bf8;
   outline: 0;
@@ -10899,8 +10980,8 @@ html {
 
 aside,
 section {
-  padding-top: 5rem;
-  padding-bottom: 5rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
 }
 
 .app-badge {
