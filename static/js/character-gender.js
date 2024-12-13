@@ -204,3 +204,96 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 });
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Fetch the data from the gender_distribution.txt file
+    fetch('static/assets/character/gender_distribution.txt')
+        .then(response => response.text())
+        .then(data => {
+            console.log("txt loaded");
+            // Parse the data from the text file into an array of objects
+            const rows = data.split('\n').slice(2);  // Skip the first 2 lines (header)
+            const years = [];
+            const femalePercentages = [];
+            const malePercentages = [];
+
+            rows.forEach(row => {
+                const [year, female, male] = row.split(' | ').map(item => item.trim());
+                if (year && female && male) {
+                    years.push(parseInt(year));
+                    femalePercentages.push(parseFloat(female/100));
+                    malePercentages.push(parseFloat(male/100));
+                }
+            });
+
+            // Plot the data using Plotly (Stacked graph)
+            const traceFemale = {
+                x: years,
+                y: femalePercentages,
+                type: 'scatter',
+                mode: 'none',  // No markers or lines
+                name: 'Female %',
+                fill: 'tonexty',  // Stack on top of male percentage
+                fillcolor: 'lightpink',
+                hovertemplate: '<b>Year: %{x}</b><br>Female: %{y:.2f}%<extra></extra>',
+                stackgroup: 1,  // Group for stacking
+            };
+
+            const traceMale = {
+                x: years,
+                y: malePercentages,
+                type: 'scatter',
+                mode: 'none',  // No markers or lines
+                name: 'Male %',
+                fill: 'tonexty',  // Stack on top of female percentage
+                fillcolor: 'lightblue',
+                hovertemplate: '<b>Year: %{x}</b><br>Male: %{y:.2f}%<extra></extra>',
+                stackgroup: 1,  // Group for stacking
+            };
+
+            // Layout configuration for the plot
+            const layout = {
+                title: 'Gender Distribution in Films',
+                xaxis: { 
+                    title: 'Year',
+                    range: [1960, 2015],
+                    tickangle: 45,  // Tilt x-axis labels for readability
+                    tickmode:'linear',
+                    dtick: 10,
+                    ticks: 'outside',    // Add small bars on ticks
+                    ticklen: 5,          // Length of the tick bars
+                    tickwidth: 1,        // Width of the tick bars
+                    tickcolor: 'black',  // Color of the tick bars
+                },
+                yaxis: { 
+                    title: "",
+                    range: [0, 1], // Ensure the y-axis range is from 0 to 100%
+                    tickformat: '%',  // Show percentage format
+                    dtick: 0.25, 
+                    ticks: 'outside',    // Add small bars on ticks
+                    ticklen: 5,          // Length of the tick bars
+                    tickwidth: 1,        // Width of the tick bars
+                    tickcolor: 'black',  // Color of the tick bars  
+
+                },
+                template: 'plotly_white',
+                showlegend: true,
+                hovermode: 'x unified',  // This ensures both gender values show when hovering over a year
+                margin: {
+                    l: 50,  // Left margin
+                    r: 50,  // Right margin
+                    t: 50,  // Top margin
+                    b: 80   // Bottom margin for better spacing
+                },
+            };
+
+            // Data array to be passed to Plotly
+            const dataPlot = [traceFemale, traceMale];
+            Plotly.newPlot('plotly-graph', dataPlot, layout);
+        })
+        .catch(error => {
+            console.error('Error loading the data:', error);
+        });
+});
+
