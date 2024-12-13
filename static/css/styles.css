@@ -11058,3 +11058,9 @@ footer a:hover, footer a:active, footer a:focus {
 .container-px-5-text-center p {
   font-size: 1.5rem;
 }
+
+
+
+#plotly-graph {
+  margin-bottom: 30px;
+}
