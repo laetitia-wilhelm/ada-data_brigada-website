@@ -56,44 +56,69 @@ These plots underscore that financial success (box office) and critical success 
 
 ---
 
-## **Does the Actor Affect a Movie’s Success?**
-We analyzed the role of actors in the top 5% of highest-grossing movies to determine their influence on success. 
+# Does the Actor Affect a Movie’s Success?
 
-### Key Observations
-- **Actor Frequency vs. Revenue**: Some actors, like **Tom Hanks**, appeared frequently in the most successful films. However, frequent appearances do not always align with the highest average revenue. In contrast, actors like **Warwick Davis** and **Alan Rickman**—though not necessarily the most frequent—are associated with higher average box office revenues.
-  
-- **Impact on Success**: The data suggest that certain actors can positively influence a movie’s financial performance. Even though correlation is not causation, top actors often appear in big-budget, well-marketed films that already have high earning potential.
+### Analysis Overview
+To investigate whether a character's actor influences a movie's success, we focused on the **top 5% of movies** (approximately 4,000 movies) based on box office revenue. These represent the movies with the highest financial performance. We chose to focus only on the top 5% because this already represents a substantial number of films, and our goal was to specifically analyze the most successful movies.
+1. Which actors appeared most frequently in these top-performing movies.
+2. The average revenue of movies they played in compared to the overall average revenue of all movies.
 
-**Bar Plot: Average Revenue of Selected Top Actors**  
-![Average Revenue of Top Actors](attachment:top_actors_revenue.png)
+### Visualization
 
-*Observations*:  
-- **Warwick Davis** is linked to significantly higher average revenue, surpassing even other well-known actors.  
-- The red dashed line indicates overall average revenue, showing that these selected top actors consistently appear in above-average revenue-generating films.
+#### Top Actors in Successful Movies
+![Top Actors by Appearances](../static/assets/actor/top-actors.png)
 
-This suggests that while an actor’s star power alone isn’t a silver bullet for success, their involvement is often part of a formula that includes strong production values, marketing, and genre appeal.
+#### Average Revenue Comparison
+<!-- Below is an interactive plot showing the average revenue of movies for each actor.
+
+<iframe src="static/assets/actor/avg-actor-revenue.html" width="100%" height="600" frameborder="0"></iframe> -->
+![Average Revenue Comparison](../static/assets/actor/average-revenue.png)
+
+This bar chart represents the average box office revenue of the movies in which the top 10 actors have appeared.
+
+Each bar corresponds to an actor, and its height shows the average revenue of the movies they participated in (measured in billions of dollars). The red dashed line represents the overall average revenue across all movies in the dataset while the green one takes into account only the top 5% movies.
+
+### Observations
+#### Top Actors by Appearances
+Interestingly, we also see well-known names like Tom Cruise and Eddie Murphy, though they appear in "only" around 15 of these 4,000 movies. This relatively small number might seem surprising given their fame, and it could be explained by the selection of movies available in our database.
+
+#### Top Actors by Average Revenue
+When ranking actors by the average revenue of the movies they appeared in, the top performers are:
+- **Warwick Davis** (Average revenue: \$1.12 billion)
+- **Christopher Knights** (Average revenue: \$1.01 billion)
+- **Bernard Lee** (Average revenue: \$906 million)
+
+Here, we observe that the ranking of actors differs from the first plot, although almost all the actors are the same in both lists. This indicates that while some actors frequently appear in successful movies, their overall revenue contribution might vary.
+
+### Key Insights
+We observe that the average revenues of the movies in which the top actors appear are consistently much higher than the overall average revenue of all movies in the dataset. This significant difference highlights that **the presence of these actors likely plays a non-negligible role in the financial success of a movie.**
+While other factors such as genre, budget, or storyline may also contribute to a movie's success, the consistent association of these top actors suggests that their involvement adds considerable value to a film's market appeal. This reinforces the idea that casting decisions are a critical factor in determining a movie's performance at the box office.
 
 ---
 
-## **Is It the Same for Every Film Genre?**
-We examined whether success factors varied by film genre over several decades. Specifically, we looked at the top 5 genres per decade to understand their consistency and evolution.
+# Does the Genre Influence a Movie's Success?
 
-### Genre Trends Over Time
-- **Genre Consistency**: Action and Adventure have remained perennially popular, dominating top revenue brackets across multiple decades.
-- **Genre Peaks**: Certain genres like Romance or Thriller experience spikes in popularity during specific decades before waning. Such temporal patterns may reflect shifting cultural tastes or industry trends.
-- **Critical vs. Financial Success**: Some genres known for critical acclaim (e.g., Drama) may not always yield blockbuster revenues, whereas traditionally “crowd-pleasing” genres (e.g., Action) may consistently deliver strong box office performance without topping rating charts.
+### Analysis Overview
+To investigate whether a movie's genre influences its success, we focused on the top 100 movies from each decade, classified again by box office revenue. By analyzing the trends in genres across decades, we aimed to understand whether certain genres consistently lead to higher financial performance.
 
-**Line Plot: Top 5 Genres of Most Successful Movies by Decade**  
-![Top 5 Genres by Decade](attachment:top_genres_decade.png)
+### Visualization
+The line chart below represents the trends of the top 5 genres by decade based on their frequency among the most successful movies. Each line corresponds to a genre, showing how its popularity changed over time.
 
-*Observations*:  
-- Action and Adventure maintain a strong presence across decades, suggesting stable audience appeal.
-- Genres like Romance Film or Thriller show up strongly in certain periods but fade later.
-- Aligning with popular, trend-following genres increases a film’s likelihood of financial success.
+![Top Actors by Appearances](../static/assets/genre/top-genres-by-decade.png)
+
+### Observations
+
+The most successful genre by far is Action/Adventure. This dominance could be attributed to the fact that these genres are among the most produced and appeal to a wide audience, offering an exciting blend of action and exploration.
+
+Additionally, we notice that **only 9 distinct genres consistently appear in the top lists across decades**. This suggests that these genres are frequently associated with commercially successful movies.
+
+Some genres, such as _Thriller_ and _Romance Film_, exhibit a sharp peak in popularity during certain decades, only to decline in later years. This could reflect changing audience preferences or cultural trends influencing movie production.
+
+The analysis strongly suggests that the genre of a movie has a notable impact on its chances of success, emphasizing the importance of aligning with current trends so as we expected, **YES**, the genre does influence a movie's success!
 
 ---
 
-## **How Does the Character Archetype Affect a Movie's Success?**
+# How Does the Character Archetype Affect a Movie's Success?
 Finally, we explored the impact of character archetypes on success metrics, focusing on their presence in high-grossing films.
 
 ### Key Archetype Insights

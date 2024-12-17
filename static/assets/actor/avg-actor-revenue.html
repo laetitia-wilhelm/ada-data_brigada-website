@@ -1,0 +1,39 @@
+import plotly.express as px
+import pandas as pd
+
+# Example data from the table
+data = {
+    "Actor name": [
+        "Warwick Davis", "Christopher Knights", "Bernard Lee", "Conrad Vernon", 
+        "Lois Maxwell", "John Ratzenberger", "Desmond Llewelyn", "Hugo Weaving", 
+        "Alan Rickman", "Robbie Coltrane", "Maggie Smith", "Harrison Ford", 
+        "Tom Cruise", "Mike Myers", "Ian McKellen", "Gary Oldman", 
+        "Harry Shearer", "Tom Hanks", "Eddie Murphy", "Jim Cummings", 
+        "Sean Connery", "Frank Welker", "Samuel L. Jackson", "Robin Williams"
+    ],
+    "Average Revenue with Actor": [
+        1.118855e+09, 1.013633e+09, 9.062448e+08, 8.459698e+08, 
+        7.725436e+08, 7.537275e+08, 7.055389e+08, 5.835959e+08, 
+        5.504018e+08, 5.279275e+08, 5.169837e+08, 5.007692e+08, 
+        4.342167e+08, 4.261619e+08, 4.229039e+08, 4.084011e+08, 
+        3.676702e+08, 3.626987e+08, 3.574087e+08, 3.447776e+08, 
+        3.297696e+08, 3.086506e+08, 2.969742e+08, 2.515342e+08
+    ]
+}
+avg_actor_revenue = pd.DataFrame(data)
+
+# Create an interactive bar chart
+fig = px.bar(
+    avg_actor_revenue,
+    x="Average Revenue with Actor",
+    y="Actor name",
+    orientation='h',
+    title="Average Revenue by Actor",
+    labels={"Average Revenue with Actor": "Average Revenue ($)", "Actor name": "Actor"},
+    text="Average Revenue with Actor"
+)
+fig.update_traces(texttemplate='%{text:.2s}', textposition='outside')
+fig.update_layout(xaxis=dict(tickformat="$,.0f"))
+
+# Save the plot as an HTML file
+fig.write_html("../static/assets/actor/avg-actor-revenue.html")
