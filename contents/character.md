@@ -1,5 +1,3 @@
----
-
 # **Visualization of the character tropes data**
 
 ## 🎯 **Objective**  
