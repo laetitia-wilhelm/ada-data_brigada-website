@@ -2245,7 +2245,7 @@ textarea.form-control-lg {
 
 /* Male Table - Blue Theme */
 .table-male {
-  --bs-table-color: #000; /* Black text for lighter rows */
+  --bs-table-color: #000000; /* Black text for lighter rows */
   --bs-table-bg: #cce5ff; /* Soft blue background */
   --bs-table-border-color: #b8daff; /* Light blue border color */
   --bs-table-striped-bg: #b3d7ff; /* Light blue for striped rows */
@@ -2255,7 +2255,7 @@ textarea.form-control-lg {
 }
 
 .table-male thead th {
-  background-color: #0056b3; /* Deep blue header background */
+  background-color: #003cb3cb; /* Deep blue header background */
   color: #ffffff; /* White text for contrast */
   font-weight: bold; /* Highlight headers */
 }
@@ -2279,14 +2279,14 @@ textarea.form-control-lg {
 
 /* Male Button - Blue Theme */
 .btn-male {
-  background-color: #0056b3; /* Deep blue background */
-  border-color: #004085; /* Dark blue border */
+  background-color: #003cb3cf; /* Deep blue background */
+  border-color: #000985d7; /* Dark blue border */
   color: #fff; /* White text */
 }
 
 .btn-male:hover {
-  background-color: #004085; /* Darker blue on hover */
-  border-color: #003366; /* Even darker blue border */
+  background-color: #850000de; /* Darker blue on hover */
+  border-color: #660000; /* Even darker blue border */
 }
 
 /* Female Button - Purple Theme */
@@ -2297,8 +2297,8 @@ textarea.form-control-lg {
 }
 
 .btn-female:hover {
-  background-color: #5a2d97; /* Darker purple on hover */
-  border-color: #4a1f7c; /* Even darker purple border */
+  background-color: #972d2dd8; /* Darker purple on hover */
+  border-color: #7c1f1fb4; /* Even darker purple border */
 }
 
 
@@ -11010,7 +11010,7 @@ section {
 }
 #mainNav .navbar-nav .nav-item .nav-link:hover {
 
-   color: var(--bs-blue)
+   color: var(--bs-red)
 }
 #mainNav .navbar-nav .nav-item .nav-link.active {
   color: #2937f0;
