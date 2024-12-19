@@ -72,12 +72,18 @@ const data = {
     ]
 };
 
+
+
+
+
+
 // Function to update the chart based on selected genre
 function updateChart() {
     const genre = document.getElementById("genre-selector").value;
     const selectedData = data[genre];
 
-    const xValues = selectedData.map(d => d.trope);
+    // Modify the trope names to replace underscores with spaces for better readability
+    const xValues = selectedData.map(d => d.trope.replace(/_/g, ' '));
     const yValues = selectedData.map(d => d.count);
 
     const chartData = [
@@ -94,21 +100,32 @@ function updateChart() {
     const layout = {
         title: `Top 5 Character Tropes in ${genre}`,
         xaxis: {
-            title: 'Character Trope',
-            tickangle: -45
+            title: '',
+            tickangle: -40
         },
         yaxis: {
             title: 'Count'
         },
-        plot_bgcolor: "#f5f5f5",
-        paper_bgcolor: "#ffffff",
+        plot_bgcolor: "transparent",
+        paper_bgcolor: "transparent",
         font: {
             family: "Arial, sans-serif",
             size: 14
-        }
+        },
+        margin: {
+            t: 60,  // Top margin
+            b: 150,  // Bottom margin for x-axis labels
+            l: 60,  // Left margin
+            r: 40   // Right margin
+        },
+        showlegend: false
     };
 
-    Plotly.newPlot('chart-genre', chartData, layout);
+    const config = {
+        displayModeBar: false  // Hide the mode bar at the top right
+    };
+
+    Plotly.newPlot('chart-genre', chartData, layout, config);
 }
 
 // Initialize the chart with the first genre
