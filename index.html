@@ -37,6 +37,10 @@
     <!-- For visu of gender -->
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script src="static/js/character-gender.js"></script>
+
+    <!-- For visu of tropes by genre -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="static/js/interactive-tropes-by-genre.js"></script>
     
     <!-- Markdown -->
     <script type="text/javascript" src="static/js/marked.min.js"></script>
@@ -83,6 +87,7 @@
    <!-- External libraries -->
    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/marked@4.0.12/lib/marked.min.js"></script>
    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
 </head>
 
 <body id="page-top">
@@ -182,6 +187,21 @@
     </section>
      character -->
 
+        <!-- Interactive Character Tropes by genre Section -->
+        <select id="genre-selector" onchange="updateChart()">
+            <option value="Action">Action</option>
+            <option value="Black-and-white">Black-and-white</option>
+            <option value="Comedy">Comedy</option>
+            <option value="Crime Fiction">Crime Fiction</option>
+            <option value="Drama">Drama</option>
+            <option value="Indie">Indie</option>
+            <option value="Romance Film">Romance Film</option>
+            <option value="Short Film">Short Film</option>
+            <option value="Thriller">Thriller</option>
+            <option value="World cinema">World Cinema</option>
+        </select>
+        <div id="chart-genre"></div>        
+        <!-- Interactive Character Tropes by genre Section -->
 
         <section class="bg-gradient-primary-to-secondary-light mt5 md5" id="character-adjectives">
             <div class="container px-5">

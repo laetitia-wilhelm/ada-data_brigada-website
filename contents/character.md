@@ -8,10 +8,10 @@ To study the representation of character tropes in films and explore how they in
 
 <!-- Image -->
   <div style="display: flex; justify-content: center; align-items: center; height: 70vh;">
-    <img src="static/assets/archetypes/tropes_count_hist.png" alt="Tropes Distribution" style="max-width: 90%; height: auto;"/>
+    <img src="static/assets/archetypes/tropes_count_hist.png" alt="Tropes Distribution" style="max-width: 100%; height: auto;"/>
   </div>
 
 🟢 **Observation**: 
 We can see that the most common tropes of this dataset are "crazy jealous guy" and "corrupt corporate executive". The least common trope is "classy cat burglar" which is not that surprising because it is a very specific kind of character that can only appear in very peculiar cases of movies.
 
----
+## **Top 5 Character tropes for the top 10 Movie Genres**
