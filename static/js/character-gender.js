@@ -297,3 +297,93 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 });
 
+
+
+// Path to the data file
+const dataFilePath = 'static/assets/character/tropes_by_gender.txt';
+
+// Function to load and parse the data
+async function loadData() {
+    const response = await fetch(dataFilePath);
+    const text = await response.text();
+
+    const lines = text.split('\n').slice(1); // Skip the header row
+    const data = lines.map(line => {
+        const [trope, gender, count] = line.split('\t');
+        return { 
+            trope: trope.replace(/_/g, ' '), // Replace underscores with spaces
+            gender, 
+            count: parseInt(count) 
+        };
+    });
+
+    return data;
+}
+
+// Function to filter and plot data
+async function filterData(genderFilter) {
+    const data = await loadData();
+
+    let filteredData;
+    if (genderFilter === 'Both') {
+        filteredData = data;
+    } else {
+        filteredData = data.filter(d => d.gender === genderFilter);
+    }
+
+    // Prepare data for Plotly
+    const tropes = [...new Set(filteredData.map(d => d.trope))];
+    const countsF = tropes.map(trope =>
+        filteredData.filter(d => d.trope === trope && d.gender === 'F')
+            .reduce((sum, d) => sum + d.count, 0)
+    );
+    const countsM = tropes.map(trope =>
+        filteredData.filter(d => d.trope === trope && d.gender === 'M')
+            .reduce((sum, d) => sum + d.count, 0)
+    );
+
+    const plotData = [
+        {
+            x: tropes,
+            y: countsF,
+            name: 'Women',
+            type: 'bar',
+            marker: { color: 'pink' }
+        },
+        {
+            x: tropes,
+            y: countsM,
+            name: 'Men',
+            type: 'bar',
+            marker: { color: 'blue' }
+        }
+    ];
+
+    const layout = {
+        title: 'Character Tropes by Gender',
+        barmode: 'group',
+        xaxis: {
+            title: 'Character Trope',
+            tickangle: -45, // Rotate the labels for better spacing
+            tickfont: { size: 10 }, // Adjust the font size
+        },
+        yaxis: { title: 'Count' },
+        legend: {
+            orientation: 'v', // Vertical orientation
+            x: 1.05, // Move the legend to the right
+            y: 1, // Align to the top
+        },
+        margin: { t: 50, b: 200, r: 150 }, // Add extra bottom margin for labels
+        height: 700 // Increase height for better visibility
+    };
+
+    const config = {
+        displayModeBar: false // Disable the mode bar
+    };
+
+    // Render the chart
+    Plotly.newPlot('chart', plotData, layout, config);
+}
+
+// Initial Plot
+filterData('Both');
