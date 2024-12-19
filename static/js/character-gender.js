@@ -275,22 +275,32 @@ document.addEventListener('DOMContentLoaded', function() {
                     ticklen: 5,          // Length of the tick bars
                     tickwidth: 1,        // Width of the tick bars
                     tickcolor: 'black',  // Color of the tick bars  
-
                 },
                 template: 'plotly_white',
                 showlegend: true,
                 hovermode: 'x unified',  // This ensures both gender values show when hovering over a year
                 margin: {
-                    l: 50,  // Left margin
-                    r: 50,  // Right margin
+                    l: 0,  // Left margin
+                    r: 0,  // Right margin
                     t: 50,  // Top margin
                     b: 80   // Bottom margin for better spacing
                 },
+                legend: {
+                    x: 1, // Position the legend at the right of the plot
+                    y: 1,
+                    xanchor: 'left',
+                    yanchor: 'top'
+                }
+            };
+            
+            // Config to hide mode bar options (like zoom, pan, etc.)
+            const config = {
+                displayModeBar: false // This removes the top-right options (mode bar)
             };
 
             // Data array to be passed to Plotly
             const dataPlot = [traceFemale, traceMale];
-            Plotly.newPlot('plotly-graph', dataPlot, layout);
+            Plotly.newPlot('plotly-graph', dataPlot, layout, config);
         })
         .catch(error => {
             console.error('Error loading the data:', error);

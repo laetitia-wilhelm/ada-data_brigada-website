@@ -195,15 +195,15 @@
             Are male and female characters portrayed with similar complexity? </p>
 
 
-            <h3>📊 Gender representation in films</h3>
+            <h3> Gender representation in films</h3>
 
-            <div style="display: flex; align-items: center; gap: 20px;">
+            <div style="display: flex; align-items: center; gap: 100px;">
                 <div style="flex: 1;">
                     <p><strong>📊 Overall Representation</strong>: Women account for only <strong>30%</strong> of all characters in movies, a figure that has remained largely stagnant over decades.</p>
                     <p><strong>🎭 Trope Representation</strong>: In the dataset of trope-rich roles, only <strong>14%</strong> of characters are female, compared to <strong>86%</strong> male.</p>
                 
                 
-                    <table class="table table-striped table-hover table-primary">
+                    <table class="table table-striped table-hover table-primary" style="width: 100%;">
                         <thead>
                             <tr>
                                 <th> Mean Values</th>
@@ -214,8 +214,8 @@
                         <tbody>
                             <tr>
                                 <td>Overall Representation</td>
-                                <td>70%</td>
-                                <td>30%</td>
+                                <td>68%</td>
+                                <td>32%</td>
                             </tr>
                             <tr>
                                 <td>Trope Representation</td>
@@ -231,7 +231,7 @@
             </div>
 
 
-            <div id="buttons">
+            <div id="buttons" style="margin-top: 30px;">
                 <button class="btn-female" onclick="filterData('F')">Women Only</button>
                 <button class="btn-male" onclick="filterData('M')">Men Only</button>
                 <button class="btn-both" onclick="filterData('Both')">Both</button>
@@ -288,7 +288,7 @@
                 </tbody>
             </table>
         
-            <p><strong>🔍 Observation</strong>: 
+            <p><strong>🟢 Observation</strong>: 
                 
                 <br> Male characters receive <strong>37% more descriptive words on average</strong> than female characters, reflecting deeper character development.</p>
         
@@ -335,7 +335,7 @@
             </div>
 
 
-           <h3>📝 Verb usage</h3>
+           <h3>Verb usage</h3>
 
             <p> 👇👇 Click to discover the different verbs used to describe men and female characters ! 👇👇 </p>
 
@@ -422,8 +422,6 @@
 
 
 
-
-
     <!-- successMovie -->
     <section class="bg-gradient-primary-to-secondary-gray mt5 md5" id="successMovie">
         <div class="container px-5">
@@ -437,14 +435,37 @@
     <!-- successMovie -->
 
 
+
+
+    <!-- Conclusion -->
+    <section class="bg-gradient-primary-to-secondary-light mt5 md5" id="conclusion">
+        <div class="container px-5">
+            <header>
+                <h2 id="conclusion-subtitle"><i class="bi bi-conclusion-fill"></i>Conclusion</h2>
+            </header>
+            <div class="main-body" id="conclusion-md"></div>
+        </div>
+    </section>
+    <!-- Character -->
+
+
+
     <!-- Footer-->
     <footer class="bg-bottom text-center py-5">
         <div class="container px-5">
             <div class="text-white-50 small">
                 <div id="copyright-text" class="mb-2"></div>
+                <p> Website template:</p>
                 <a id="github-link" href="https://github.com/senli1073">Github</a>
                 <span class="mx-1">&middot;</span>
                 <a id="license-link" href="https://github.com/senli1073/senli1073.github.io/blob/main/LICENSE">License</a>
+            </div>
+            <div class="text-white-50 small">
+                <div id="copyright-text" class="mb-2"></div>
+                <p> Group Github:</p>
+                <a id="github-link" href="https://github.com/epfl-ada/ada-2024-project-data_brigada">Analysis</a>
+                <span class="mx-1">&middot;</span>
+                <a id="license-link" href="https://github.com/laetitia-wilhelm/ada-data_brigada-website">Website</a>
             </div>
         </div>
     </footer>
